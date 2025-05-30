@@ -70,6 +70,32 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+
+      {/* Services Section */}
+      <section className="w-full bg-[#1d6ceb] py-2">
+        <div className="max-w-6xl mx-auto px-4 text-white">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-6 text-lg text-center">
+            <div className="flex flex-col items-center">
+              <span className="text-2xl">📈</span>
+              <p>
+                <strong>Fundraising</strong>
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-2xl">🤝</span>
+              <p>
+                <strong>Mergers & Acquisitions</strong>
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-2xl">💼</span>
+              <p>
+                <strong>Advisory Services</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

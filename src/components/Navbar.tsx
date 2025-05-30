@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <header className="bg-soft-gold shadow sticky top-0 z-50 transition duration-300 min-h-[80px]">
+      <header className="bg-soft-gold shadow sticky top-0 z-101 transition duration-300 min-h-[80px]">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 lg:px-12 py-3">
           {/* Left: Logo & Name */}
           <div className="flex items-center gap-3 w-1/3 z-10">
@@ -88,7 +88,7 @@ function Navbar() {
                 <a
                   key={text}
                   href={`#${text.toLowerCase()}`}
-                  className={`text-lg text-dark border-b border-purple-400 pb-2 w-full opacity-0 translate-y-4 animate-slide-in animation-delay-${
+                  className={`text-lg text-dark border-b border-bg-[#1F2937] pb-2 w-full opacity-0 translate-y-4 animate-slide-in animation-delay-${
                     index * 100
                   }`}
                   onClick={() => setMenuOpen(false)}

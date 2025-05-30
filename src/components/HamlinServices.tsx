@@ -43,12 +43,21 @@ function HamlinServices() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition"
+              className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col justify-between"
             >
-              <h3 className="text-xl font-semibold text-[#1d6ceb] mb-2">
-                {service.title}
-              </h3>
-              <p className="text-sm text-gray-700">{service.description}</p>
+              <div>
+                <h3 className="text-xl font-semibold text-[#1d6ceb] mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  {service.description}
+                </p>
+              </div>
+
+              {/* Learn More button */}
+              <button className="mt-auto inline-block text-sm font-medium text-[#1d6ceb] hover:underline">
+                Learn More →
+              </button>
             </div>
           ))}
         </div>

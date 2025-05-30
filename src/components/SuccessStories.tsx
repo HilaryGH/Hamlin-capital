@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 function SuccessStories() {
   const stories = [
     {
@@ -32,9 +34,28 @@ function SuccessStories() {
     },
   ];
 
+  const [current, setCurrent] = useState(0);
+
+  // Auto-slide every 6 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev === stories.length - 1 ? 0 : prev + 1));
+    }, 6000);
+
+    return () => clearInterval(timer); // Cleanup on unmount
+  }, [stories.length]);
+
+  const handlePrev = () => {
+    setCurrent((prev) => (prev === 0 ? stories.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrent((prev) => (prev === stories.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <section className="py-16 px-6 bg-gray-50 text-dark">
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="max-w-2xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-4 text-[#1d6ceb]">
           Success Stories
         </h2>
@@ -42,26 +63,42 @@ function SuccessStories() {
           Proven results from partnerships built on strategy, trust, and
           innovation.
         </p>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-left">
-          {stories.map((s, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-xl shadow hover:shadow-md transition space-y-4"
-            >
-              <img src={s.logo} alt={s.name} className="h-12 w-auto mb-2" />
-              <h3 className="text-xl font-semibold text-[#1d6ceb]">
-                {s.title}
-              </h3>
-              <p className="text-sm text-gray-600">{s.story}</p>
-              <blockquote className="text-sm italic text-gray-500 border-l-4 border-blue-300 pl-4">
-                “{s.quote}”
-                <br />
-                <span className="block mt-2 font-medium text-[#1d6ceb]">
-                  {s.client}
-                </span>
-              </blockquote>
-            </div>
-          ))}
+
+        <div
+          key={current}
+          className="bg-soft-gold  p-6 rounded-xl shadow transition duration-700 ease-in-out transform hover:shadow-md text-left"
+        >
+          <img
+            src={stories[current].logo}
+            alt={stories[current].name}
+            className="h-12 w-auto mb-2"
+          />
+          <h3 className="text-xl font-semibold text-[#1d6ceb]">
+            {stories[current].title}
+          </h3>
+          <p className="text-sm text-gray-600">{stories[current].story}</p>
+          <blockquote className="text-sm italic text-gray-500 border-l-4 border-blue-300 pl-4 mt-4">
+            “{stories[current].quote}”
+            <br />
+            <span className="block mt-2 font-medium text-[#1d6ceb]">
+              {stories[current].client}
+            </span>
+          </blockquote>
+        </div>
+
+        <div className="mt-6 flex justify-center gap-6">
+          <button
+            onClick={handlePrev}
+            className="text-[#1d6ceb] font-medium hover:underline"
+          >
+            ← Previous
+          </button>
+          <button
+            onClick={handleNext}
+            className="text-[#1d6ceb] font-medium hover:underline"
+          >
+            Next →
+          </button>
         </div>
       </div>
     </section>
