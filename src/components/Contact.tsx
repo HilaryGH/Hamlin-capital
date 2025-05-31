@@ -23,7 +23,7 @@ function Contact() {
                 <strong>Address:</strong> Addis Ababa, Ethiopia
               </p>
               <p className="text-sm sm:text-base text-gray-700">
-                <strong>Phone:</strong> +251 912 345 678
+                <strong>Phone:</strong> +251 911508734
               </p>
               <p className="text-sm sm:text-base text-gray-700">
                 <strong>Email:</strong> info@hamlincapital.com

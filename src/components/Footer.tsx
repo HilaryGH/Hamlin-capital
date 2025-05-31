@@ -45,7 +45,7 @@ const Footer = () => {
             <p className="text-sm">
               Addis Ababa, Ethiopia
               <br />
-              Phone: +251 912 345 678
+              Phone: +251 911508734
               <br />
               Email: info@hamlincapital.com
             </p>
