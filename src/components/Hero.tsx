@@ -1,36 +1,77 @@
 function Hero() {
   return (
-    <section className="bg-soft-gold py-12 px-4 md:px-16">
-      <div className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto gap-8">
-        {/* Left Image */}
-        <div className="flex-1 flex justify-center">
-          <img
-            src="coin.png"
-            alt="Old book"
-            className="max-w-[200px] md:max-w-[250px] h-auto"
-          />
-        </div>
+    <section className="bg-white">
+      {/* Hero Image */}
+      <div className="w-full h-80 md:h-100 overflow-hidden">
+        <img
+          src="final coin.jpg"
+          alt="Hero"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-        {/* Center Text */}
-        <div className="flex-1 text-center md:text-left space-y-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-center text-dark ">
-            Connecting Capital to Opportunity
-          </h1>
-          <p className="text-lg text-dark max-w-md mx-auto md:mx-0">
-            Delivering comprehensive financial services with integrity and
-            professionalism.
-          </p>
-          <button className="bg-[#ADF802] text-dark px-6 py-2 rounded-full hover:bg-[#FACC15] transition">
-            Start a Project
-          </button>
-        </div>
-
-        {/* Right Image */}
-        <div className="flex-1 flex justify-center">
-          <img
-            src="idea.png"
-            className="filter invert sepia saturate-[800%] hue-rotate-[20deg] brightness-[1.1] contrast-[1.2]"
-          />
+      {/* Partner Logos (no heading/paragraph) */}
+      <div className="bg-soft-gold px-6 py-2">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 items-center justify-center">
+            {/* Hypothetical Logos */}
+            <div className="flex justify-center">
+              <div className="h-16 w-16 flex items-center justify-center rounded-full  bg-[#ADF802]  shadow hover:shadow-md transition">
+                <svg
+                  className="h-6 w-6 sm:h-8 sm:w-8 text-[#1d6ceb]"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <path d="M2 17l10 5 10-5" />
+                  <path d="M2 12l10 5 10-5" />
+                </svg>
+              </div>
+            </div>
+            <div className="flex justify-center ">
+              <div className="h-16 w-16 flex items-center justify-center rounded-full bg-[#ADF802] shadow hover:shadow-md transition">
+                <svg
+                  className="h-6 w-6 sm:h-8 sm:w-8 text-[#1d6ceb]"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M3 12h18M12 3v18" />
+                </svg>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <div className="h-16 w-16 flex items-center justify-center rounded-full bg-[#F8FFE5] shadow hover:shadow-md transition">
+                <svg
+                  className="h-6 w-6 sm:h-8 sm:w-8 text-[#1d6ceb]"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M8 12l2 2 4-4" />
+                </svg>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <div className="h-16 w-16 flex items-center justify-center rounded-full bg-[#FFFFFF]  shadow hover:shadow-md transition">
+                <svg
+                  className="h-6 w-6 sm:h-8 sm:w-8 text-[#1d6ceb]"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+            {/* Add more logo blocks if needed */}
+          </div>
         </div>
       </div>
     </section>

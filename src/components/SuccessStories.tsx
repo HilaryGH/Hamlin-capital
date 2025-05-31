@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 function SuccessStories() {
   const stories = [
     {
-      logo: "/assets/startup-logo.svg",
+      personImage: "https://randomuser.me/api/portraits/women/44.jpg",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png",
       name: "EthioTech Solutions",
       title: "Equity Fundraising – $5M Series A Round",
       story:
@@ -13,7 +14,8 @@ function SuccessStories() {
       client: "Meron Getachew, CEO of EthioTech",
     },
     {
-      logo: "/assets/factory-logo.svg",
+      personImage: "https://randomuser.me/api/portraits/men/32.jpg",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Factory_icon.svg/2048px-Factory_icon.svg.png",
       name: "BlueNile Manufacturing PLC",
       title: "Debt Financing – Growth Expansion",
       story:
@@ -23,7 +25,8 @@ function SuccessStories() {
       client: "Dawit Tadesse, CFO of BlueNile Manufacturing",
     },
     {
-      logo: "/assets/logistics-logo.svg",
+      personImage: "https://randomuser.me/api/portraits/women/68.jpg",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Logistics_icon.svg/512px-Logistics_icon.svg.png",
       name: "EastBridge Logistics",
       title: "M&A – Cross-Border Acquisition",
       story:
@@ -36,13 +39,11 @@ function SuccessStories() {
 
   const [current, setCurrent] = useState(0);
 
-  // Auto-slide every 6 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev === stories.length - 1 ? 0 : prev + 1));
     }, 6000);
-
-    return () => clearInterval(timer); // Cleanup on unmount
+    return () => clearInterval(timer);
   }, [stories.length]);
 
   const handlePrev = () => {
@@ -54,54 +55,73 @@ function SuccessStories() {
   };
 
   return (
-    <section className="py-16 px-6 bg-gray-50 text-dark">
-      <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-4 text-[#1d6ceb]">
-          Success Stories
-        </h2>
-        <p className="text-lg text-gray-600 mb-10">
-          Proven results from partnerships built on strategy, trust, and
-          innovation.
-        </p>
+    <>
+      <section className="py-4 px-6 bg-gray-50 text-dark">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4 text-[#1d6ceb]">
+            Success Stories
+          </h2>
+          <p className="text-lg text-gray-600 mb-20">
+            Proven results from partnerships built on strategy, trust, and
+            innovation.
+          </p>
 
-        <div
-          key={current}
-          className="bg-soft-gold  p-6 rounded-xl shadow transition duration-700 ease-in-out transform hover:shadow-md text-left"
-        >
-          <img
-            src={stories[current].logo}
-            alt={stories[current].name}
-            className="h-12 w-auto mb-2"
-          />
-          <h3 className="text-xl font-semibold text-[#1d6ceb]">
-            {stories[current].title}
-          </h3>
-          <p className="text-sm text-gray-600">{stories[current].story}</p>
-          <blockquote className="text-sm italic text-gray-500 border-l-4 border-blue-300 pl-4 mt-4">
-            “{stories[current].quote}”
-            <br />
-            <span className="block mt-2 font-medium text-[#1d6ceb]">
-              {stories[current].client}
-            </span>
-          </blockquote>
-        </div>
+          <div
+            key={current}
+            className="bg-soft-gold p-6 rounded-xl shadow transition duration-700 ease-in-out transform hover:shadow-md text-left relative"
+          >
+            {/* Person Image Centered */}
+            <div className="flex justify-center -mt-24 mb-4">
+              <img
+                src={stories[current].personImage}
+                alt="Client"
+                className="w-60 h-60 rounded-full border-4 border-white shadow-md object-cover"
+              />
+            </div>
 
-        <div className="mt-6 flex justify-center gap-6">
-          <button
-            onClick={handlePrev}
-            className="text-[#1d6ceb] font-medium hover:underline"
-          >
-            ← Previous
-          </button>
-          <button
-            onClick={handleNext}
-            className="text-[#1d6ceb] font-medium hover:underline"
-          >
-            Next →
-          </button>
+            {/* Company Logo */}
+            <div className="flex justify-center mb-4">
+              <img
+                src={stories[current].logo}
+                alt={stories[current].name}
+                className="h-10 w-auto"
+              />
+            </div>
+
+            {/* Content */}
+            <h3 className="text-xl font-semibold text-[#1d6ceb] text-center">
+              {stories[current].title}
+            </h3>
+            <p className="text-sm text-gray-600 mt-2">
+              {stories[current].story}
+            </p>
+            <blockquote className="text-sm italic text-gray-500 border-l-4 border-blue-300 pl-4 mt-4">
+              “{stories[current].quote}”
+              <br />
+              <span className="block mt-2 font-medium text-[#1d6ceb]">
+                {stories[current].client}
+              </span>
+            </blockquote>
+          </div>
+
+          {/* Navigation Buttons */}
+          <div className="mt-6 flex justify-center gap-6">
+            <button
+              onClick={handlePrev}
+              className="text-[#1d6ceb] font-medium hover:underline"
+            >
+              ← Previous
+            </button>
+            <button
+              onClick={handleNext}
+              className="text-[#1d6ceb] font-medium hover:underline"
+            >
+              Next →
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

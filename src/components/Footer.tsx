@@ -2,37 +2,24 @@ const Footer = () => {
   return (
     <>
       {/* Mountain-Shaped Top Edge */}
+      {/* Smooth Wave Top Edge */}
       <div className="w-full overflow-hidden -mb-1 relative z-10">
         <svg
-          className="w-full h-24"
+          className="w-full h-20"
           viewBox="0 0 1440 320"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
         >
-          <defs>
-            <linearGradient
-              id="mountainGradient"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="0%"
-            >
-              <stop offset="0%" stopColor="#f7e199" />
-              <stop offset="100%" stopColor="#e9cf6f" />
-            </linearGradient>
-          </defs>
           <path
-            d="M0,160 L120,80 L240,160 L360,80 L480,160 L600,80 L720,160 L840,80 L960,160 L1080,80 L1200,160 L1320,80 L1440,160 L1440,320 L0,320 Z"
-            fill="url(#mountainGradient)"
-            stroke="#e5c76a"
-            strokeWidth="2"
-          />
+            fill="#C5FA4D"
+            d="M0,224L48,213.3C96,203,192,181,288,160C384,139,480,117,576,106.7C672,96,768,96,864,106.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
         </svg>
       </div>
 
       {/* Footer Body */}
       <footer className="bg-soft-gold text-gray-900 relative z-0">
-        <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-3 gap-8">
           <div>
             <h4 className="text-lg font-semibold mb-2">Quick Links</h4>
             <ul className="space-y-1 text-sm">

@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import SuccessStories from "./components/SuccessStories";
 import Contact from "./components/Contact";
+import Hero from "./components/Hero";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <HamlinServices />
       <About />
       <SuccessStories />
+      <Hero />
       <Contact />
       <Footer />
     </>

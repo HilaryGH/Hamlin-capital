@@ -1,76 +1,96 @@
 function Contact() {
   return (
-    <section className="py-16 px-6 bg-gray-50 text-dark">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-        {/* Contact Info */}
-        <div>
-          <h2 className="text-3xl font-bold text-[#1d6ceb] mb-4">
-            Get in Touch
-          </h2>
-          <p className="text-gray-600 mb-6">
-            We'd love to hear from you. Reach out to discuss fundraising,
-            investment strategies, or to schedule a consultation.
-          </p>
-          <div className="space-y-4 text-sm text-gray-700">
-            <p>
-              <strong>Address:</strong> Bole, Addis Ababa, Ethiopia
+    <>
+      <section className="bg-white text-gray-900 py-12" id="contact">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#1d6ceb]">
+              Get in Touch
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+              Whether you're seeking funding, strategic partnerships, or expert
+              advice, we're here to help you connect capital to opportunity.
             </p>
-            <p>
-              <strong>Phone:</strong> +251 912 345 678
-            </p>
-            <p>
-              <strong>Email:</strong> contact@hamlincapital.com
-            </p>
-            <p>
-              <strong>Hours:</strong> Mon – Fri, 9:00 AM – 6:00 PM
-            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {/* Contact Information */}
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-gray-800">
+                Contact Information
+              </h3>
+              <p className="text-sm sm:text-base text-gray-700">
+                <strong>Address:</strong> Addis Ababa, Ethiopia
+              </p>
+              <p className="text-sm sm:text-base text-gray-700">
+                <strong>Phone:</strong> +251 912 345 678
+              </p>
+              <p className="text-sm sm:text-base text-gray-700">
+                <strong>Email:</strong> info@hamlincapital.com
+              </p>
+
+              <div className="mt-6">
+                <h4 className="text-sm font-semibold text-gray-800 mb-2">
+                  Follow Us
+                </h4>
+                <div className="flex gap-4 text-2xl text-[#1d6ceb]">
+                  <a href="#" className="hover:text-gray-700">
+                    <i className="fab fa-facebook"></i>
+                  </a>
+                  <a href="#" className="hover:text-gray-700">
+                    <i className="fab fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form (Optional) */}
+            <div>
+              <form className="bg-gray-50 p-6 rounded-lg shadow-md">
+                <h3 className="text-lg font-semibold mb-4">
+                  Send Us a Message
+                </h3>
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Your full name"
+                    className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="you@example.com"
+                    className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Message
+                  </label>
+                  <textarea
+                    placeholder="Your message..."
+                    className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="bg-[#ADF802] hover:bg-[#c0f932] text-gray-900 font-semibold px-4 py-2 rounded transition"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-
-        {/* Contact Form */}
-        <form className="bg-white p-6 rounded-xl shadow-md space-y-4">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium mb-1">
-              Full Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1d6ceb]"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-1">
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1d6ceb]"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium mb-1">
-              Message
-            </label>
-            <textarea
-              id="message"
-              rows={4}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1d6ceb]"
-              required
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="bg-[#1d6ceb] text-white px-6 py-2 rounded-full hover:bg-[#4c8ef0] transition"
-          >
-            Send Message
-          </button>
-        </form>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
