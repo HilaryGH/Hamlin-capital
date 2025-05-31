@@ -31,7 +31,8 @@ export default function HeroSection() {
 
   return (
     <>
-      <div className="relative h-screen w-full overflow-hidden">
+      {/* Hero Section */}
+      <div className="relative h-[100dvh] max-h-[1000px] w-full overflow-hidden">
         {/* Slides */}
         {slides.map((slide, index) => (
           <div
@@ -40,28 +41,27 @@ export default function HeroSection() {
               index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
-            {/* Background Image */}
             <img
               src={slide.image}
               alt="hero"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-top sm:object-cover"
             />
 
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/50" />
+            {/* Dark overlay or gradient for better readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-10" />
           </div>
         ))}
 
-        {/* STATIC vertical line to the left of text */}
-        <div className="absolute top-1/4 left-[8%] h-1/2 w-[5px] bg-[#C5FA4D] z-20" />
+        {/* Decorative vertical line (optional on small screens) */}
+        <div className="absolute top-1/4 left-[6%] hidden sm:block h-1/2 w-[5px] bg-[#C5FA4D] z-20" />
 
         {/* Text Content */}
-        <div className="relative z-30 flex items-center justify-start h-full px-8 sm:px-16">
-          <div className="max-w-3xl text-left ml-[5%]">
-            <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+        <div className="relative z-30 flex items-center justify-start h-full px-6 sm:px-16">
+          <div className="max-w-3xl text-left ml-0 sm:ml-[5%]">
+            <h1 className="text-3xl sm:text-6xl font-bold text-white mb-4 drop-shadow-lg">
               {slides[currentIndex].heading}
             </h1>
-            <p className="text-lg text-white mb-6 drop-shadow">
+            <p className="text-base sm:text-lg text-white mb-6 drop-shadow">
               {slides[currentIndex].subtext}
             </p>
             <button className="bg-btn text-white px-6 py-3 rounded-full hover:bg-[#15803D] transition">
@@ -72,7 +72,7 @@ export default function HeroSection() {
       </div>
 
       {/* Services Section */}
-      <section className="w-full bg-[#1d6ceb] py-2">
+      <section className="w-full bg-[#1d6ceb] py-6">
         <div className="max-w-6xl mx-auto px-4 text-white">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-6 text-lg text-center">
             <div className="flex flex-col items-center">
