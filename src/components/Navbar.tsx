@@ -1,57 +1,88 @@
 import { useState } from "react";
 import { X } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
+import { MdLocationOn, MdPhone, MdEmail } from "react-icons/md";
+import { FaArrowRight } from "react-icons/fa";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const navLinks = [
+    { label: "Who We Are", id: "about/values" },
+    { label: "What We Do", id: "service" },
+    { label: "Research", id: "research" },
+    { label: "Success Stories", id: "success" },
+    { label: "Contact Us", id: "contact" },
+  ];
+
   return (
     <>
-      {/* Navbar */}
-      <header className="bg-soft-gold shadow sticky top-0 z-101 transition duration-300 min-h-[80px]">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-4 lg:px-12 py-3">
-          {/* Left: Logo & Name */}
-          <div className="flex items-center gap-3 w-1/3 z-10">
-            <img
-              src="Hamlin-capital logo.png"
-              alt="HamlinCapital logo"
-              className="h-[60px] w-auto object-contain"
-            />
-            <span className="text-dark text-2xl sm:text-3xl font-bold">
-              Hamlin-Capital
+      {/* Top Info Bar */}
+      <div className="hidden md:flex justify-between items-center bg-btn text-white text-sm px-10 py-2">
+        <div className="flex gap-6 items-center">
+          <span className="flex items-center gap-1">
+            <MdLocationOn /> Addis Ababa, Ethiopia
+          </span>
+          <span className="flex items-center gap-1">
+            <MdPhone /> +251 911508734
+          </span>
+          <span className="flex items-center gap-1">
+            <MdEmail /> g.fikre2@gmail.com
+          </span>
+          <span className="flex items-center gap-1">
+            <span role="img" aria-label="clock">
+              🕒
             </span>
+            Mon–Sat: 8:30 AM – 11:30 PM
+          </span>
+        </div>
+        <div className="flex gap-4 items-center">
+          <a href="#" className="hover:text-blue-400">
+            <FaFacebook size={18} />
+          </a>
+          <a href="#" className="hover:text-blue-400">
+            <FaLinkedin size={18} />
+          </a>
+        </div>
+      </div>
+
+      {/* Main Navbar */}
+      <header className="bg-soft-gold shadow sticky top-0 z-50 transition duration-300 min-h-[72px]">
+        <div className="max-w-7xl mx-auto flex justify-between items-center px-4 lg:px-8 py-2">
+          {/* Logo */}
+          <div className="flex gap-1  z-10 items-center">
+            <img
+              src="Captial_logo.png"
+              alt="HamlinCapital logo"
+              className="h-[50px] w-auto object-contain"
+            />
           </div>
 
-          {/* Center: Nav Links (Desktop) */}
-          <nav className="hidden md:flex gap-12 text-dark text-lg font-semibold">
-            {["Home", "Services", "Success Stories", "Contact Us"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#1F2937] after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  {item}
-                </a>
-              )
-            )}
+          {/* Desktop Nav Links */}
+          <nav className="hidden md:flex gap-16 text-dark text-lg font-semibold relative">
+            {navLinks.map(({ label, id }) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                className="relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#1F2937] after:transition-all after:duration-300 hover:after:w-full"
+              >
+                {label}
+              </a>
+            ))}
           </nav>
 
-          {/* Right: WhatsApp (Desktop) */}
-          <div className="hidden md:flex flex-col items-end text-dark">
-            <span className="text-sm font-medium leading-none">Call us</span>
+          {/* Right Button */}
+          <div className="hidden md:flex">
             <a
-              href="https://wa.me/251911508734"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-green-600"
+              href="#contact"
+              className="mt-4 bg-btn text-white px-2 py-2 rounded-md w-full text-center hover:bg-yellow-400 transition flex items-center justify-center gap-1"
+              onClick={() => setMenuOpen(false)}
             >
-              <FaWhatsapp className="text-green-600 w-8 h-8 animate-bounce" />
-              <span className="text-base font-semibold">+251 911508734</span>
+              How Can We Help You <FaArrowRight />
             </a>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Toggle */}
           <div className="md:hidden z-10">
             {menuOpen ? (
               <X
@@ -77,26 +108,29 @@ function Navbar() {
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-soft-gold bg-opacity-30 backdrop-blur-sm z-30 transition-opacity duration-300"
+            className="fixed inset-0 bg-soft-gold bg-opacity-30 backdrop-blur-sm z-30 transition-opacity animate-slide-in animation-delay-${index * 100} duration-300"
             onClick={() => setMenuOpen(false)}
           />
 
-          {/* Slide-down Mobile Menu */}
-          <nav className="md:hidden fixed top-[80px] left-0 right-0 bottom-0 z-40 golden-bg flex flex-col items-start px-6 py-8 space-y-4 animate-fade-in-down">
-            {["Home", "Services", "Success Stories", "Contact Us"].map(
-              (text, index) => (
-                <a
-                  key={text}
-                  href={`#${text.toLowerCase()}`}
-                  className={`text-lg text-dark border-b border-bg-[#1F2937] pb-2 w-full opacity-0 translate-y-4 animate-slide-in animation-delay-${
-                    index * 100
-                  }`}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {text}
-                </a>
-              )
-            )}
+          {/* Slide-down Menu */}
+          <nav className="md:hidden fixed top-[80px] left-0 right-0 bottom-0 z-40 golden-bg flex flex-col items-start px-6 py-8 space-y-6 animate-fade-in-down">
+            {navLinks.map(({ label, id }) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                className="text-lg text-dark border-b border-gray-300 pb-2 w-full"
+                onClick={() => setMenuOpen(false)}
+              >
+                {label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              className="mt-4 bg-btn text-white text-sm px-4 py-2 rounded-md w-full max-w-[300px] text-center hover:bg-yellow-400 transition flex items-center justify-center gap-2"
+              onClick={() => setMenuOpen(false)}
+            >
+              How Can We Help You <FaArrowRight />
+            </a>
           </nav>
         </>
       )}

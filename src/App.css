@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@500;600&display=swap");
 @import "tailwindcss";
 
 :root {
-  --font-heading: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
 }
 
 .font-heading {
@@ -15,29 +15,35 @@
 }
 
 .bg-soft-gold {
-  background: linear-gradient(135deg, #FFFFFF 0%, #F8FFE5 25%, #C5FA4D  60%, #ADF802 100%);
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f8ffe5 25%,
+    #c5fa4d 60%,
+    #adf802 100%
+  );
 }
-.bg-btn{
+.bg-btn {
   background-color: #1d6ceb;
 }
 /* Neutral companions */
 .text-dark {
-  color: #1F2937; /* dark gray */
+  color: #1f2937; /* dark gray */
 }
 .text-medium {
-  color: #4B5563; /* medium gray */
+  color: #4b5563; /* medium gray */
 }
 .bg-light-section {
-  background-color: #F9FAFB; /* very light gray for sections */
+  background-color: #f9fafb; /* very light gray for sections */
 }
 .border-soft {
-  border-color: #E5E7EB; /* light border */
+  border-color: #e5e7eb; /* light border */
 }
 .text-accent {
-  color: #FACC15; /* golden accent for buttons or links */
+  color: #facc15; /* golden accent for buttons or links */
 }
 .bg-hover-gold {
-  background-color: #FEF9C3; /* hover gold */
+  background-color: #fef9c3; /* hover gold */
 }
 @keyframes fade-in-down {
   from {
@@ -66,12 +72,21 @@
 }
 
 /* You can define delays if needed */
-.animation-delay-0   { animation-delay: 0ms; }
-.animation-delay-100 { animation-delay: 100ms; }
-.animation-delay-200 { animation-delay: 200ms; }
-.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-0 {
+  animation-delay: 0ms;
+}
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
 @keyframes swingUpDown {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -120,4 +135,22 @@
   animation: fadeUp 1s ease-out forwards;
   animation-delay: 0.4s;
 }
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
+.info-right {
+  position: relative;
+  overflow: hidden;
+}
+
+.scrolling-icons {
+  white-space: nowrap;
+  display: inline-block;
+  animation: scrollLeft 10s linear infinite;
+}

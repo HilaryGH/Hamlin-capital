@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 // Slides
 const slides = [
@@ -65,9 +66,12 @@ export default function HeroSection() {
               <p className="text-base sm:text-lg text-white mb-6 drop-shadow">
                 {slides[currentIndex].subtext}
               </p>
-              <button className="bg-btn text-white px-6 py-3 rounded-full hover:bg-[#15803D] transition">
-                Discover Our Services
-              </button>
+              <Link
+                to="/service"
+                className="bg-btn text-white text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-[#15803D] transition inline-block text-center"
+              >
+                Unlock Your Financial Potential
+              </Link>
             </div>
           </div>
         </div>

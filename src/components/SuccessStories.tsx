@@ -56,7 +56,7 @@ function SuccessStories() {
 
   return (
     <>
-      <section className="py-4 px-6 bg-gray-50 text-dark">
+      <section className="py-4 px-6 bg-gray-50 text-dark" id="success">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4 text-[#1d6ceb]">
             Success Stories
