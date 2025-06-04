@@ -7,7 +7,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import SuccessStories from "./components/SuccessStories";
 import Contact from "./components/Contact";
-import ContactPage from "./components/contactPage";
+import ContactPage from "./components/ContactPage";
 import Hero from "./components/Hero";
 import BrandValues from "./components/BrandValues";
 import MergersAcquisitionsPage from "./components/Service/MergersAcquisitionsPage";
