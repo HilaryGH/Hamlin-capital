@@ -1,9 +1,4 @@
-import {
-  FaChartLine,
-  FaUniversity,
-  FaHandshake,
-  FaPiggyBank,
-} from "react-icons/fa";
+import { FaChartLine, FaUniversity, FaPiggyBank } from "react-icons/fa";
 import { BsGlobeAmericas } from "react-icons/bs";
 
 function Hero() {

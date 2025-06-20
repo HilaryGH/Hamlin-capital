@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { X } from "lucide-react";
-import { useLocation } from "react-router-dom";
 
 import {
   FaFacebook,
@@ -24,9 +23,12 @@ function Navbar({ onLoginClick }: NavbarProps) {
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
-    navigate("/login");
+    if (onLoginClick) {
+      onLoginClick();
+    } else {
+      navigate("/login");
+    }
   };
-
   const navLinks = [
     {
       label: "Listings",
