@@ -1,22 +1,47 @@
+import { useState } from "react";
+import axios from "axios";
 import { FaFacebookF, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    try {
+      await axios.post("http://localhost:5000/api/contact", formData);
+      setStatus("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      setStatus("Failed to send message. Try again.");
+    }
+  };
+
   return (
     <>
-      {/* Hero Section (unchanged) */}
+      {/* Hero Section */}
       <section
         className="relative bg-cover bg-center min-h-[400px] flex items-center justify-center px-6 py-12"
         style={{ backgroundImage: "url('phone.jpg')" }}
       >
-        {/* Overlay for text contrast */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
-
-        {/* Text Content */}
         <div className="relative z-10 text-center text-white hero-text">
           <h1
-            className="text-4xl md:text-5xl font-bold fade-in-up delay-1
-          "
+            className="text-4xl md:text-5xl font-bold fade-in-up delay-1"
             data-aos="slide-up"
             data-aos-duration="800"
           >
@@ -24,11 +49,12 @@ function ContactPage() {
           </h1>
         </div>
       </section>
+
+      {/* Contact Section */}
       <section className="bg-white text-gray-900 py-16" id="contact">
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
-          {/* Column 1 - Office Info + Socials */}
+          {/* Contact Info + Socials */}
           <div className="space-y-6">
-            {/* Our Office */}
             <div>
               <h3 className="text-2xl font-semibold text-blue-900 mb-2">
                 Our Office
@@ -43,8 +69,6 @@ function ContactPage() {
                 <strong>Email:</strong> info@hamlincapital.com
               </p>
             </div>
-
-            {/* Social Icons */}
             <div>
               <h4 className="text-sm font-semibold text-blue-800 mb-2">
                 Follow Us
@@ -54,7 +78,6 @@ function ContactPage() {
                   href="https://www.facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-700"
                 >
                   <FaFacebookF />
                 </a>
@@ -62,7 +85,6 @@ function ContactPage() {
                   href="https://www.linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-700"
                 >
                   <FaLinkedinIn />
                 </a>
@@ -70,7 +92,6 @@ function ContactPage() {
                   href="https://www.twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-700"
                 >
                   <FaXTwitter />
                 </a>
@@ -78,7 +99,6 @@ function ContactPage() {
                   href="https://www.whatsapp.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-700"
                 >
                   <FaWhatsapp />
                 </a>
@@ -86,20 +106,24 @@ function ContactPage() {
             </div>
           </div>
 
-          {/* Column 2 & 3 - Contact Form */}
+          {/* Contact Form */}
           <div className="lg:col-span-2 space-y-4">
             <h3 className="text-2xl font-semibold text-blue-800">
               For Enquiries
             </h3>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">
                   Name
                 </label>
                 <input
+                  name="name"
                   type="text"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Your full name"
                   className="mt-1 w-full border-b border-gray-300 focus:border-[#1d6ceb] outline-none py-2 bg-transparent"
+                  required
                 />
               </div>
 
@@ -108,9 +132,13 @@ function ContactPage() {
                   Email
                 </label>
                 <input
+                  name="email"
                   type="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="you@example.com"
                   className="mt-1 w-full border-b border-gray-300 focus:border-[#1d6ceb] outline-none py-2 bg-transparent"
+                  required
                 />
               </div>
 
@@ -119,9 +147,13 @@ function ContactPage() {
                   Message
                 </label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Your message..."
                   className="mt-1 w-full border-b border-gray-300 focus:border-[#1d6ceb] outline-none py-2 bg-transparent resize-none"
                   rows={4}
+                  required
                 ></textarea>
               </div>
 
@@ -131,10 +163,13 @@ function ContactPage() {
               >
                 Submit
               </button>
+              {status && <p className="text-sm mt-2">{status}</p>}
             </form>
           </div>
         </div>
       </section>
+
+      {/* Google Map */}
       <div
         style={{
           width: "100%",

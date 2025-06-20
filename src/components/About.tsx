@@ -23,7 +23,7 @@ function About() {
           {/* Text Section */}
           <div className="md:w-1/2 space-y-6 text-left">
             <h1
-              className="text-3xl md:text-4xl font-bold text-blue-900 inline-block border-b-4 border-[#ADF802] pb-1"
+              className="text-2xl md:text-4xl font-bold text-blue-900 inline-block border-b-4 border-[#ADF802] pb-1"
               data-aos="slide-up"
               data-aos-duration="800"
             >
@@ -31,7 +31,7 @@ function About() {
             </h1>
 
             <p
-              className="text-lg text-dark"
+              className=" text-sm md:text-lg text-dark"
               data-aos="fade-up"
               data-aos-delay="200"
               data-aos-duration="800"

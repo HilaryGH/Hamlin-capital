@@ -1,26 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@500;600&display=swap");
 @import "tailwindcss";
 
-:root {
-  --font-heading: "Poppins", sans-serif;
-  --font-body: "Inter", sans-serif;
+body {
+  font-family: "Inter", sans-serif;
 }
 
-.font-heading {
-  font-family: var(--font-heading);
+.font-poppins {
+  font-family: "Poppins", sans-serif;
 }
 
-.font-body {
-  font-family: var(--font-body);
+.font-inter {
+  font-family: "Inter", sans-serif;
 }
+
 
 .bg-soft-gold {
   background: linear-gradient(
     135deg,
     #ffffff 0%,
     #f8ffe5 25%,
-    #c5fa4d 60%,
-    #adf802 100%
+    #f8ffe5 60%,
+    #c5fa4d 100%
+  
   );
 }
 .bg-btn {

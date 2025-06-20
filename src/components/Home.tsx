@@ -1,110 +1,62 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import MembershipPreview from "./MembershipPreview";
+import CareersPreview from "./CareersPreview";
+import Community from "./Community";
+import HamlinServices from "./HamlinServices";
+import About from "./About";
+import Hero from "./Hero";
 
-// Slides
-const slides = [
-  {
-    image: "https://images.pexels.com/photos/3182763/pexels-photo-3182763.jpeg",
-    heading: "Connecting Capital to Opportunity",
-    subtext: "Empowering growth through strategic investment solutions.",
-  },
-  {
-    image: "https://images.pexels.com/photos/3182787/pexels-photo-3182787.jpeg",
-    heading: "Fueling Innovation Through Smart Finance",
-    subtext: "We bridge ideas and investors to build Ethiopia's future.",
-  },
-  {
-    image: "https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg",
-    heading: "Partnering for Purposeful Progress",
-    subtext: "Expert guidance for fundraising, M&A, and asset growth.",
-  },
-];
-
-export default function HeroSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
+export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      {/* Hero Section */}
-      <div className="relative h-[80vh] sm:h-[90vh] lg:h-[100vh] max-h-[600px] sm:max-h-[1000px] w-full overflow-hidden">
-        {/* Slides */}
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentIndex ? "opacity-100 z-0" : "opacity-0 z-0"
-            }`}
-          >
+      <section className="bg-white text-dark py-12 px-4 sm:px-6 lg:px-16">
+        <div className="flex flex-col-reverse sm:flex-row-reverse items-center gap-10">
+          {/* Right Image */}
+          <div className="w-full sm:w-1/2">
             <img
-              src={slide.image}
-              alt="hero"
-              className="h-full w-full object-cover"
+              src="Revenue-bro.svg"
+              alt="hero visual"
+              className="w-full h-72 sm:h-80 md:h-96 object-contain"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-10" />
           </div>
-        ))}
 
-        {/* Text + Line */}
-        <div className="absolute inset-0 z-20 flex items-center justify-start px-6 sm:px-16">
-          <div className="flex items-start gap-4 sm:gap-6">
-            {/* Vertical Line */}
-            <div className="h-60 w-[4px] bg-[#C5FA4D] shrink-0" />
-
-            {/* Text Content */}
-            <div className="max-w-3xl text-left">
-              <h1 className="text-2xl sm:text-6xl font-bold text-white mb-4 drop-shadow-lg">
-                {slides[currentIndex].heading}
-              </h1>
-              <p className="text-base sm:text-lg text-white mb-6 drop-shadow">
-                {slides[currentIndex].subtext}
-              </p>
+          {/* Left Text Content */}
+          <div className="w-full sm:w-1/2 flex flex-col justify-center">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 ">
+              Connecting Capital to Opportunity
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-6 ">
+              Empowering growth through strategic investment solutions.
+            </p>
+            <div className=" pt-3">
               <Link
                 to="/service"
-                className="bg-btn text-white text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-[#15803D] transition inline-block text-center"
+                className="bg-btn text-white text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-md hover:bg-[#15803D] transition inline-block text-center"
               >
                 Unlock Your Financial Potential
               </Link>
             </div>
           </div>
         </div>
-      </div>
-      {/* Services Section */}
-      <section className="w-full bg-[#1d6ceb] py-1">
-        <div className="max-w-6xl mx-auto px-4 text-white">
-          <div className="grid grid-cols-1 sm:grid-cols-3  text-lg text-center">
-            {/* Item 1 */}
-            <div className="flex flex-col items-center  rounded-lg bg-transparent hover:bg-[#C5FA4D] hover:text-black transition-all duration-300 cursor-pointer">
-              <span className="text-2xl mb-2">📈</span>
-              <p>
-                <strong>Fundraising</strong>
-              </p>
-            </div>
+      </section>
 
-            {/* Item 2 */}
-            <div className="flex flex-col items-center  rounded-lg bg-transparent hover:bg-[#C5FA4D] hover:text-black transition-all duration-300 cursor-pointer">
-              <span className="text-2xl mb-2">🤝</span>
-              <p>
-                <strong>Mergers & Acquisitions</strong>
-              </p>
-            </div>
-
-            {/* Item 3 */}
-            <div className="flex flex-col items-center  rounded-lg bg-transparent hover:bg-[#C5FA4D] hover:text-black transition-all duration-300 cursor-pointer">
-              <span className="text-2xl mb-2">💼</span>
-              <p>
-                <strong>Advisory Services</strong>
-              </p>
-            </div>
-          </div>
+      {/* Previews Section */}
+      <section className="bg-gray-50 py-10 px-4 sm:px-6 lg:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Community />
+          <MembershipPreview />
+          <CareersPreview />
         </div>
+      </section>
+      <section>
+        <HamlinServices />
+      </section>
+      <section>
+        <About />
+      </section>
+      <section>
+        <Hero />
       </section>
     </>
   );
