@@ -105,13 +105,10 @@ function Navbar({ onLoginClick }: NavbarProps) {
             className="flex items-center gap-3 z-10 cursor-pointer"
           >
             <img
-              src="Captial logo.PNG"
+              src="hamlin.png"
               alt="Logo"
               className="h-12 md:h-14 object-contain"
             />
-            <span className="text-dark font-poppins italic text-[14px] md:text-[20px] font-semibold tracking-wide">
-              Investment Bank
-            </span>
           </div>
 
           {/* Desktop Navigation */}

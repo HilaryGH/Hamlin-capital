@@ -52,11 +52,10 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
             <div className="flex items-center mb-4 lg:mb-0">
               <img
-                src="Captial_logo.png"
+                src="hamlin.png"
                 alt="Hamlin Capital Logo"
                 className="h-12 mr-3"
               />
-              <span className="text-xl font-bold">Hamlin Capital</span>
             </div>
             <div className="flex gap-4">
               <a
