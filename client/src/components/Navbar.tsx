@@ -97,7 +97,7 @@ function Navbar({ onLoginClick }: NavbarProps) {
       </div>
 
       {/* Main Navbar */}
-      <header className="bg-soft-gold shadow-md sticky top-0 z-50 py-4 px-5 md:px-8 lg:px-12">
+      <header className="bg-white shadow-md sticky top-0 z-50 py-4 px-5 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
           <div
@@ -112,7 +112,7 @@ function Navbar({ onLoginClick }: NavbarProps) {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 text-gray-800 font-inter text-sm lg:text-[16px]">
+          <nav className="hidden md:flex items-center gap-8 text-blue-600 font-inter text-sm lg:text-[16px]">
             {navLinks.map(({ label, id, dropdown }) =>
               dropdown ? (
                 <div
@@ -121,11 +121,11 @@ function Navbar({ onLoginClick }: NavbarProps) {
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
-                  <button className="flex items-center gap-1 font-medium">
+                  <button className="flex items-center gap-1 font-medium text-blue-600 hover:text-blue-700">
                     {label} <IoIosArrowDown className="text-sm" />
                   </button>
                   {dropdownOpen && (
-                    <div className="absolute top-full mt-2 left-0 w-56 bg-soft-gold shadow-lg rounded-md z-50 border">
+                    <div className="absolute top-full mt-2 left-0 w-56 bg-white shadow-lg rounded-md z-50 border border-gray-200">
                       {dropdown.map(({ label, action }) => (
                         <button
                           key={label}
@@ -133,7 +133,7 @@ function Navbar({ onLoginClick }: NavbarProps) {
                             action();
                             setDropdownOpen(false);
                           }}
-                          className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
+                          className="w-full text-left px-4 py-2 hover:bg-blue-50 text-sm text-blue-600"
                         >
                           {label}
                         </button>
@@ -145,7 +145,7 @@ function Navbar({ onLoginClick }: NavbarProps) {
                 <a
                   key={id}
                   href={`#${id}`}
-                  className="relative pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-gray-800 after:transition-all after:duration-300 hover:after:w-full"
+                  className="relative pb-1 text-blue-600 hover:text-blue-700 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {label}
                 </a>
@@ -167,12 +167,12 @@ function Navbar({ onLoginClick }: NavbarProps) {
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? (
-              <X className="w-6 h-6 text-gray-800" />
+              <X className="w-6 h-6 text-blue-600" />
             ) : (
               <div className="flex flex-col gap-1.5">
-                <span className="block w-6 h-0.5 bg-gray-800 rounded" />
-                <span className="block w-4 h-0.5 bg-gray-800 rounded ml-auto" />
-                <span className="block w-6 h-0.5 bg-gray-800 rounded" />
+                <span className="block w-6 h-0.5 bg-blue-600 rounded" />
+                <span className="block w-4 h-0.5 bg-blue-600 rounded ml-auto" />
+                <span className="block w-6 h-0.5 bg-blue-600 rounded" />
               </div>
             )}
           </button>
@@ -187,13 +187,13 @@ function Navbar({ onLoginClick }: NavbarProps) {
         }`}
         style={{ transitionTimingFunction: "ease-in-out" }}
       >
-        <div className="bg-soft-gold w-full h-full pt-20 px-6 overflow-y-auto transition-transform duration-300">
+        <div className="bg-white w-full h-full pt-20 px-6 overflow-y-auto transition-transform duration-300">
           <nav className="flex flex-col space-y-4 font-inter">
             {navLinks.map(({ label, id, dropdown }) =>
               dropdown ? (
                 <div key={id} className="border-b border-gray-200 pb-2">
                   <button
-                    className="flex items-center justify-between w-full text-lg font-medium py-2"
+                    className="flex items-center justify-between w-full text-lg font-medium py-2 text-blue-600"
                     onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
                   >
                     {label}
@@ -212,7 +212,7 @@ function Navbar({ onLoginClick }: NavbarProps) {
                             action();
                             setMenuOpen(false);
                           }}
-                          className="block text-left text-base text-gray-700 py-1.5 flex items-center"
+                          className="block text-left text-base text-blue-600 py-1.5 flex items-center hover:text-blue-700"
                         >
                           <IoIosArrowForward className="mr-2 text-sm" />
                           {label}
@@ -226,7 +226,7 @@ function Navbar({ onLoginClick }: NavbarProps) {
                   key={id}
                   href={`#${id}`}
                   onClick={() => setMenuOpen(false)}
-                  className="text-lg font-medium py-2 border-b border-gray-200"
+                  className="text-lg font-medium py-2 border-b border-gray-200 text-blue-600 hover:text-blue-700"
                 >
                   {label}
                 </a>

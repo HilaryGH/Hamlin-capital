@@ -39,7 +39,7 @@ const Footer = () => {
           preserveAspectRatio="none"
         >
           <path
-            fill="#C5FA4D"
+            fill="#1d6ceb"
             d="M0,224L48,213.3C96,203,192,181,288,160C384,139,480,117,576,106.7C672,96,768,96,864,106.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>
         </svg>
@@ -101,7 +101,7 @@ const Footer = () => {
             <div className="text-center mb-6">
               <button
                 onClick={() => setShowLinks((prev) => !prev)}
-                className="bg-[#C5FA4D] text-gray-900 px-4 py-2 rounded font-semibold shadow hover:shadow-md transition"
+                className="bg-[#1d6ceb] text-white px-4 py-2 rounded font-semibold shadow hover:shadow-md transition"
               >
                 {showLinks ? "Hide" : "Discover More"}
               </button>

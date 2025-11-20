@@ -19,7 +19,7 @@ function Hero() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 text-center">
             {/* Icon 1: Growth Chart */}
             <div className="flex flex-col items-center">
-              <div className="h-16 w-16 flex items-center justify-center rounded-full bg-[#c5fa4d] shadow hover:shadow-md transition">
+              <div className="h-16 w-16 flex items-center justify-center rounded-full bg-[#1d6ceb] shadow hover:shadow-md transition">
                 <FaChartLine className="text-blue-500 text-2xl" />
               </div>
               <p className="text-sm font-medium text-gray-700 mt-2">Growth</p>
@@ -27,7 +27,7 @@ function Hero() {
 
             {/* Icon 2: Banking */}
             <div className="flex flex-col items-center">
-              <div className="h-16 w-16 flex items-center justify-center rounded-full bg-[#c5fa4d] shadow hover:shadow-md transition">
+              <div className="h-16 w-16 flex items-center justify-center rounded-full bg-[#1d6ceb] shadow hover:shadow-md transition">
                 <FaUniversity className="text-blue-500 text-2xl" />
               </div>
               <p className="text-sm font-medium text-gray-700 mt-2">
@@ -37,7 +37,7 @@ function Hero() {
 
             {/* Icon 4: Wealth */}
             <div className="flex flex-col items-center">
-              <div className="h-16 w-16 flex items-center justify-center rounded-full bg-[#c5fa4d] shadow hover:shadow-md transition">
+              <div className="h-16 w-16 flex items-center justify-center rounded-full bg-[#1d6ceb] shadow hover:shadow-md transition">
                 <FaPiggyBank className="text-blue-500 text-2xl" />
               </div>
               <p className="text-sm font-medium text-gray-700 mt-2">
@@ -47,7 +47,7 @@ function Hero() {
 
             {/* Icon 5: Global */}
             <div className="flex flex-col items-center">
-              <div className="h-16 w-16 flex items-center justify-center rounded-full bg-[#c5fa4d] shadow hover:shadow-md transition">
+              <div className="h-16 w-16 flex items-center justify-center rounded-full bg-[#1d6ceb] shadow hover:shadow-md transition">
                 <BsGlobeAmericas className="text-blue-500 text-2xl" />
               </div>
               <p className="text-sm font-medium text-gray-700 mt-2">

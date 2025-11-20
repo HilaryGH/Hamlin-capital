@@ -41,7 +41,7 @@ const ResearchPage: React.FC = () => {
       description:
         "Deep dives into company fundamentals and competitive positioning",
       icon: <Building className="w-5 h-5 md:w-6 md:h-6" />,
-      color: "bg-[#c5fa4d]",
+      color: "bg-[#1d6ceb]",
     },
     {
       title: "Quantitative Review",
@@ -55,7 +55,7 @@ const ResearchPage: React.FC = () => {
       description:
         "Clear, data-driven investment recommendations with risk assessment",
       icon: <TrendingUp className="w-5 h-5 md:w-6 md:h-6" />,
-      color: "bg-[#c5fa4d]",
+      color: "bg-[#1d6ceb]",
     },
   ];
 

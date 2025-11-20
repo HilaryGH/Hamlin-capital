@@ -7,6 +7,19 @@ const path = require("path");
 
 dotenv.config();
 
+// Check for required environment variables
+if (!process.env.JWT_SECRET) {
+  console.error("❌ ERROR: JWT_SECRET is not set in environment variables!");
+  console.error("Please set JWT_SECRET in your .env file");
+  process.exit(1);
+}
+
+if (!process.env.MONGO_URI) {
+  console.error("❌ ERROR: MONGO_URI is not set in environment variables!");
+  console.error("Please set MONGO_URI in your .env file");
+  process.exit(1);
+}
+
 const app = express();
 
 // === Middleware ===

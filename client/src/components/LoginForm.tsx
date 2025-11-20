@@ -15,6 +15,7 @@ function LoginForm() {
   });
 
   const [message, setMessage] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -25,27 +26,49 @@ function LoginForm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setMessage(""); // Clear previous messages
+    setLoading(true);
+    
     try {
       const res = await axios.post(
         "https://hamlin-backend.onrender.com/api/login",
         form
       );
-      localStorage.setItem("token", res.data.token);
+      
+      if (res.data.token) {
+        localStorage.setItem("token", res.data.token);
 
-      const payload = JSON.parse(atob(res.data.token.split(".")[1]));
-      localStorage.setItem("role", payload.role);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+        const payload = JSON.parse(atob(res.data.token.split(".")[1]));
+        localStorage.setItem("role", payload.role);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
 
-      if (payload.role === "admin") {
-        navigate("/admin-dashboard");
+        if (payload.role === "admin") {
+          navigate("/admin-dashboard");
+        } else {
+          navigate("/dashboard");
+        }
       } else {
-        navigate("/dashboard");
+        setMessage("Login failed: No token received");
+        setLoading(false);
       }
     } catch (err: any) {
-      const errorMsg =
-        err.response?.data?.message ||
-        "Something went wrong. Please try again.";
+      console.error("Login error:", err);
+      
+      let errorMsg = "Something went wrong. Please try again.";
+      
+      if (err.response) {
+        // Server responded with error
+        errorMsg = err.response.data?.message || `Server error: ${err.response.status}`;
+      } else if (err.request) {
+        // Request was made but no response received
+        errorMsg = "Unable to connect to server. Please check your internet connection.";
+      } else {
+        // Error setting up the request
+        errorMsg = err.message || errorMsg;
+      }
+      
       setMessage(errorMsg);
+      setLoading(false);
     }
   };
 
@@ -100,9 +123,10 @@ function LoginForm() {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2.5 rounded-md transition"
+            disabled={loading}
+            className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white text-sm font-medium py-2.5 rounded-md transition"
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
